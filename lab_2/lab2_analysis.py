@@ -298,7 +298,7 @@ def main() -> None:
     args = parser.parse_args()
     out_dir = args.saved
 
-    # За вимогою завдання до тестової оцінки спершу проходимо A, B і C.
+    # спершу проходимо A, B і C.
     check_small_test_sets(out_dir)
 
     data = load_predictions(out_dir)
@@ -310,7 +310,7 @@ def main() -> None:
     if missing:
         raise KeyError(
             f"У {out_dir / 'predictions.npz'} бракує масивів: {', '.join(missing)}. "
-            "Переконайся, що прогнози створені актуальним lab2_starter.py."
+            "Переконайтеся, що прогнози створені актуальним lab2_starter.py."
         )
 
     y_validation = data["validation_y"]
@@ -325,7 +325,7 @@ def main() -> None:
     auc = plot_validation_curves(y_validation, s_validation, out_dir)
 
     best, candidates = find_best_threshold(y_validation, s_validation)
-    # У CSV назва стовпця вартості — C, як у формулюванні завдання.
+    # У CSV назва стовпця вартості — C
     candidate_df = pd.DataFrame(candidates).rename(columns={"cost": "C"})
     candidate_df.to_csv(out_dir / "threshold_candidates.csv", index=False)
     (out_dir / "threshold_star.txt").write_text(
@@ -350,7 +350,7 @@ def main() -> None:
     print("\nПорівняння порогів на validation:")
     print(comparison_df.to_string(index=False))
 
-    # Test не використовується для вибору порога — застосовуємо t* із validation.
+    # Test не використовується для вибору порога, застосовуємо t* із validation.
     test_result, precision, recall = evaluate_test_set(
         data, float(best["threshold"])
     )
