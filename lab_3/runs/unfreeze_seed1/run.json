@@ -1,0 +1,116 @@
+{
+    "mode": "unfreeze",
+    "seed": 1,
+    "model": {
+        "architecture": "ResNet-18",
+        "weights": "ResNet18_Weights.IMAGENET1K_V1",
+        "num_classes": 6,
+        "classes": [
+            "buildings",
+            "forest",
+            "glacier",
+            "mountain",
+            "sea",
+            "street"
+        ],
+        "img_size": 160,
+        "total_parameters": 11179590,
+        "trainable_parameters": 8396806
+    },
+    "transforms": {
+        "train": [
+            "RandomResizedCrop(160, scale=(0.7, 1.0))",
+            "RandomHorizontalFlip()",
+            "ToTensor()",
+            "Normalize(mean, std)"
+        ],
+        "validation_test": [
+            "Resize((160, 160))",
+            "ToTensor()",
+            "Normalize(mean, std)"
+        ],
+        "mean": [
+            0.485,
+            0.456,
+            0.406
+        ],
+        "std": [
+            0.229,
+            0.224,
+            0.225
+        ]
+    },
+    "training": {
+        "epochs": 8,
+        "batch_size": 32,
+        "optimizer": "AdamW",
+        "weight_decay": 0.0001,
+        "betas": [
+            0.9,
+            0.999
+        ],
+        "eps": 1e-08,
+        "amsgrad": false,
+        "fc_lr": 0.003,
+        "layer4_lr": 0.0001,
+        "loss": "CrossEntropyLoss",
+        "steps_per_epoch": 38,
+        "total_optimizer_steps": 304,
+        "drop_last": false,
+        "num_workers": 0,
+        "shuffle": true,
+        "validation_batch_size": 64
+    },
+    "environment": {
+        "python": "3.12.10",
+        "torch": "2.11.0+cu128",
+        "torchvision": "0.26.0+cu128",
+        "numpy": "2.3.5",
+        "scikit_learn": "1.9.0",
+        "device": "cuda",
+        "device_name": "NVIDIA GeForce RTX 5060 Laptop GPU"
+    },
+    "reproducibility": {
+        "split_sha256": "a4b693acbd3045782e2bdb155fa214e5f81efaaa25a562a1c030ed321a45774b",
+        "commit_hash": null,
+        "working_tree_dirty": null
+    },
+    "results": {
+        "train_loss": [
+            0.5761842568715413,
+            0.18521273290117582,
+            0.12140998507539431,
+            0.08481510584553083,
+            0.04363346899549166,
+            0.05159364437063535,
+            0.05180853034059207,
+            0.03315198553726077
+        ],
+        "validation_macro_f1": [
+            0.8925930224794731,
+            0.9008375808479476,
+            0.8959330606778786,
+            0.8909305054628218,
+            0.8935787413644594,
+            0.8978254254257684,
+            0.8912206701502866,
+            0.8916040046569608
+        ],
+        "epoch_seconds": [
+            4.521839900058694,
+            4.6003909999271855,
+            5.066088799969293,
+            5.009474999969825,
+            4.52711519994773,
+            4.531344700022601,
+            4.542732600006275,
+            4.506467500003055
+        ],
+        "training_seconds": 37.30674450006336,
+        "final_validation_macro_f1": 0.8916040046569608,
+        "validation_logits_shape": [
+            1498,
+            6
+        ]
+    }
+}

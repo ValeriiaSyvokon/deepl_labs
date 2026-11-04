@@ -1,0 +1,131 @@
+{
+    "statistics": {
+        "scratch": {
+            "mean": 0.5392148733574206,
+            "range": null
+        },
+        "frozen": {
+            "mean": 0.8837657141829945,
+            "range": 0.010095240174428088
+        },
+        "unfreeze": {
+            "mean": 0.8975813470097221,
+            "range": 0.013043849176922584
+        },
+        "comparison": {
+            "R": 0.013043849176922584,
+            "delta_pre": 0.34455084082557397,
+            "delta_unf": 0.013815632826727597,
+            "total_transfer_gain": 0.35836647365230156
+        }
+    },
+    "run_scores": {
+        "scratch_seed1": 0.5392148733574206,
+        "frozen_seed1": 0.8842012435043274,
+        "frozen_seed2": 0.8785003294351141,
+        "frozen_seed3": 0.8885955696095422,
+        "unfreeze_seed1": 0.8916040046569608,
+        "unfreeze_seed2": 0.9046478538338834,
+        "unfreeze_seed3": 0.8964921825383226
+    },
+    "selected_model": {
+        "regime": "unfreeze",
+        "run": "unfreeze_seed2",
+        "seed": 2,
+        "validation_macro_f1": 0.9046478538338834
+    },
+    "test_results": {
+        "validation_macro_f1": 0.9046478538338834,
+        "test_macro_f1": 0.8953231222842651,
+        "difference": -0.009324731549618215,
+        "accuracy": 0.892809587217044,
+        "standard_error": 0.007982196742780967,
+        "confusion_matrix": [
+            [
+                197,
+                0,
+                0,
+                0,
+                1,
+                21
+            ],
+            [
+                0,
+                235,
+                0,
+                1,
+                0,
+                1
+            ],
+            [
+                2,
+                0,
+                195,
+                69,
+                8,
+                3
+            ],
+            [
+                0,
+                0,
+                22,
+                228,
+                12,
+                1
+            ],
+            [
+                2,
+                1,
+                1,
+                4,
+                246,
+                1
+            ],
+            [
+                11,
+                0,
+                0,
+                0,
+                0,
+                240
+            ]
+        ]
+    },
+    "characteristic_errors": [
+        {
+            "filename": "20111.jpg",
+            "true_class": "glacier",
+            "predicted_class": "mountain",
+            "predicted_probability": 0.8535180687904358,
+            "pair_count": 69
+        },
+        {
+            "filename": "20320.jpg",
+            "true_class": "mountain",
+            "predicted_class": "glacier",
+            "predicted_probability": 0.9995480179786682,
+            "pair_count": 22
+        },
+        {
+            "filename": "20246.jpg",
+            "true_class": "buildings",
+            "predicted_class": "street",
+            "predicted_probability": 0.999990701675415,
+            "pair_count": 21
+        },
+        {
+            "filename": "20154.jpg",
+            "true_class": "mountain",
+            "predicted_class": "sea",
+            "predicted_probability": 0.9702948927879333,
+            "pair_count": 12
+        },
+        {
+            "filename": "20734.jpg",
+            "true_class": "street",
+            "predicted_class": "buildings",
+            "predicted_probability": 0.891059160232544,
+            "pair_count": 11
+        }
+    ]
+}
